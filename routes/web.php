@@ -4,6 +4,10 @@ Route::get('/{any}', function () {
     return view('app');
 })->where('any', '.*');
 
+/**
+ * Uncomment the following routes when switching to blade.php frontend
+ */
+
 //Route::get('/', 'Post\ReaderController@index')->name('reader.index');
 //Route::get('/read/{id}', 'Post\ReaderController@readPost')->name('reader.read');
 //

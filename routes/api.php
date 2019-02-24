@@ -17,6 +17,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+/**
+ * Comment out these routes when switching to blade.php frontend
+ */
 Route::post('/post/create', 'Post\PostController@create');
 Route::get('/post/get/{id}', 'Post\PostController@edit');
 Route::get('/post/edit/{id}', 'Post\PostController@edit');

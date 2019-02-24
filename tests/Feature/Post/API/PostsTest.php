@@ -9,6 +9,7 @@ use Tests\TestCase;
 class PostsTest extends TestCase
 {
     use DatabaseMigrations;
+
     /** @test */
     public function userCanCreatePosts()
     {
