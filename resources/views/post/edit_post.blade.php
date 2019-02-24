@@ -12,20 +12,20 @@
             </nav>
 
             <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
-                <h1>Create Post</h1>
-                <div class="col-md-4">
-                    <form method="post" action="{{ route('post.form') }}">
+                <h1>Edit Post</h1>
+                <div class="col-md-6">
+                    <form method="post" action="{{ route('post.update', ['id' => $post->id]) }}">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label for="name">Title</label>
                             <input type="text" class="form-control" id="id_title" name="title"
-                                   aria-describedby="title" placeholder="Enter title">
+                                   aria-describedby="title" value="{{ $post->title }}">
                         </div>
                         <div class="form-group">
                             <label for="description">Description</label>
-                            <textarea class="form-control" id="id_description" rows="3" name="description" placeholder="Description"></textarea>
+                            <textarea class="form-control" id="id_description" rows="5" name="description">{{ $post->description }}</textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Create post</button>
+                        <button type="submit" class="btn btn-primary">update post</button>
                     </form>
                 </div>
             </main>

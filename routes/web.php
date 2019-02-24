@@ -1,22 +1,14 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/', function () {
-    return view('post.index');
-});
+Route::get('/', 'Post\ReaderController@index')->name('reader.index');
+Route::get('/read/{id}', 'Post\ReaderController@readPost')->name('reader.read');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin/post', 'HomeController@getPostForm')->name('post.form');
-Route::post('/admin/post', 'HomeController@createPost')->name('post.form');
+Route::get('/home', 'Post\HomeController@index')->name('home');
+Route::get('/admin/post', 'Post\HomeController@getPostForm')->name('post.form');
+Route::post('/admin/post', 'Post\HomeController@createPost')->name('post.form');
+Route::get('/admin/post/details/{id}', 'Post\HomeController@getPost')->name('post.details');
+Route::get('/admin/post/edit/{id}', 'Post\HomeController@editPost')->name('post.edit');
+Route::post('/admin/post/edit/{id}', 'Post\HomeController@updatePost')->name('post.update');
+Route::get('/admin/post/delete/{id}', 'Post\HomeController@deletePost')->name('post.delete');
